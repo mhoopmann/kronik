@@ -9,14 +9,15 @@ KRONIK = CKronik.o
 
 
 #Make statements
-stpeter : Kronik.cpp $(KRONIK)
+all : Kronik.cpp $(KRONIK)
 	$(CC) $(FLAGS) $(INCLUDE) $(KRONIK) Kronik.cpp -o kronik
+	ar rcs libkronik.a $(KRONIK)
 
 clean:
 	rm *.o kronik
 
 
-#StPeter objects
+#Kronik objects
 CKronik.o : CKronik.cpp
 	$(CC) $(FLAGS) $(INCLUDE) CKronik.cpp -c
 
