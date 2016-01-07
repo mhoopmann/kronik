@@ -602,7 +602,7 @@ bool CKronik::processHK(const char* in, const char* out) {
 
 int CKronik::binarySearch(vector<sScan>& v, int index, double mass, int charge){
 	int lower,mid,upper;
-	int sz=v[index].vPep->size();
+	int sz=(int)v[index].vPep->size();
 	int i;
 
 	double lowMass=mass-(mass/1000000*dPPMTol);
@@ -758,7 +758,7 @@ void CKronik::setGaussFit(bool b){
   bGaussFit=b;
 }
 
-unsigned int CKronik::size(){
+size_t CKronik::size(){
   return vPeps.size();
 }
 
@@ -884,7 +884,7 @@ bool CKronik::pearson(int i1, int i2, bool byScan, bool interpolate, double& rva
   if(rval<0.0) lrval=0.0;  //negative correlations are false hits in this analysis
   else lrval=rval; 
 
-  df=p1.size()-2;
+  df=(double)p1.size()-2;
   if(df<1) {
     pval=1.0;
   } else {
@@ -903,7 +903,7 @@ bool CKronik::pearson(int i1, int i2, bool byScan, bool interpolate, double& rva
 
 }
 
-double CKronik::polynomialBestFit(sProfileData* profile, int sz, float max, double* coeff, int degree){
+double CKronik::polynomialBestFit(sProfileData* profile, size_t sz, float max, double* coeff, int degree){
 	if(degree>3){
 		cout << "High order polynomials not supported with this function. Max=3" << endl;
 		exit(1);
@@ -933,7 +933,7 @@ double CKronik::polynomialBestFit(sProfileData* profile, int sz, float max, doub
 	}
 
 	//This is an offset to be reapplied later; It improves coefficient accuracy using this polynomial method.
-	n=x.size();
+	n=(int)x.size();
 	double sFactor=x[n/2];
 
 	//set X matrix

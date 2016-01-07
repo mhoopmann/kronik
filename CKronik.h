@@ -134,7 +134,7 @@ typedef struct sPepProfile {
   int bestScan;
   int MS2Events;
 
-  unsigned int datapoints;
+  size_t datapoints;
 
   float rTime;
   float firstRTime;
@@ -287,7 +287,7 @@ typedef struct sPepProfile {
     return *this;
   }
 
-  void setPoints(const unsigned int& i){
+  void setPoints(const size_t& i){
     delete [] profile;
     profile = new sProfileData[i];
     datapoints=i;
@@ -361,7 +361,7 @@ public:
 
   //Statistics and math functions  
   bool		pearson(int i1, int i2, bool byScan, bool interpolate, double& rval, double& pval, double& slope, double& intercept, float& sum1, float& sum2);
-	double	polynomialBestFit(sProfileData* profile, int sz, float max, double* coeff, int degree=2);
+	double	polynomialBestFit(sProfileData* profile, size_t sz, float max, double* coeff, int degree=2);
   
   //Parameter accessors and modifiers
 	void setGaussFit(bool b);
@@ -388,7 +388,7 @@ public:
   void clear();
   void clearHK();
   void erase(unsigned int i);
-  unsigned int size();
+  size_t size();
 
   //Sorting functions
   void sortBasePeak();
