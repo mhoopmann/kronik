@@ -20,6 +20,9 @@ limitations under the License.
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
 
 using namespace std;
 
@@ -368,8 +371,8 @@ public:
 
   //Automation
   int getPercent();
-  bool loadHK(char* in);
-  bool processHK(char* in, char* out="\0");
+  bool loadHK(const char* in);
+  bool processHK(const char* in, const char* out="\0");
 
   //Tools
   bool getRT(int scanNum, float& rt);

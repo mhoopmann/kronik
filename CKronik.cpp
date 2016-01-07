@@ -102,7 +102,7 @@ void CKronik::erase(unsigned int i){
 int CKronik::getPercent(){
   return iPercent;
 }
-bool CKronik::loadHK(char* in){
+bool CKronik::loadHK(const char* in){
 	FILE *hkr;
 	sScan scan;
 	sPep pep;
@@ -174,7 +174,7 @@ bool CKronik::loadHK(char* in){
   cout << pepCount << " peptides from " << hkData.size() << " scans." << endl;
 }
 
-bool CKronik::processHK(char*  in, char* out) {
+bool CKronik::processHK(const char* in, const char* out) {
 	FILE *hkr;
 	sScan scan;
 	sPep pep;
